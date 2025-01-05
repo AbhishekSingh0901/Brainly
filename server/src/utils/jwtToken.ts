@@ -1,12 +1,12 @@
 import { Response } from "express";
 
-export const sendToken = (
+export const sendToken = async (
   user: any,
   statusCode: number,
   res: Response,
   message: string
 ) => {
-  const token = user.generateToken();
+  const token = await user.generateToken();
   res
     .status(statusCode)
     .cookie("token", token, {
