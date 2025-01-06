@@ -39,6 +39,7 @@ export const signup = (req: Request, res: Response) => {
   });
 
   const { error, data } = schema.safeParse(req.body);
+
   error && res.status(400).json({ success: false, message: error.issues });
   if (!data) return;
 

@@ -4,9 +4,9 @@ import { IoShareSocialOutline } from "react-icons/io5";
 
 import { useState } from "react";
 import CreateContentModal from "@/components/ui/CreateContentModal";
-import { Sidebar } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
+import Sidebar from "@/components/ui/Sidebar";
 
 function Dashboard() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -19,12 +19,14 @@ function Dashboard() {
           <h2 className="text-base md:text-xl font-medium">All Content</h2>
           <div className="flex items-center gap-2 md:gap-4">
             <Button
+              isForm={false}
               onClick={() => console.log("Button clicked")}
               variant="secondary"
               text="Shrare Brain"
               startIcon={<IoShareSocialOutline className="text-lg" />}
             />
             <Button
+              isForm={false}
               onClick={() => setModalOpen(true)}
               variant="primary"
               text="Add Content"

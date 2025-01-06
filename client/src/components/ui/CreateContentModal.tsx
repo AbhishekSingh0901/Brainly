@@ -1,7 +1,6 @@
 import { IoClose } from "react-icons/io5";
 import Button from "./Button";
 import { Dispatch, SetStateAction } from "react";
-import Input from "./Input";
 
 function CreateContentModal({
   open,
@@ -13,14 +12,8 @@ function CreateContentModal({
   return (
     <div>
       {open && (
-        <div
-          className="w-screen h-screen bg-indigo-950 bg-opacity-20 fixed top-0 left-0 z-10 flex justify-center items-center"
-          onClick={(e) => e.target === e.currentTarget && onClose(false)}
-        >
-          <div
-            className="bg-white p-5 rounded-md"
-            onClick={(e) => e.stopPropagation()}
-          >
+        <div className="w-screen h-screen bg-indigo-950 bg-opacity-20 fixed top-0 left-0 z-10 flex justify-center items-center">
+          <div className="bg-white p-5 rounded-md">
             <div className="flex justify-between items-center">
               <h2 className="font-medium">Add Content</h2>
               <button onClick={() => onClose(false)}>
@@ -38,6 +31,7 @@ function CreateContentModal({
               />
               <div className="flex justify-end">
                 <Button
+                  isForm={true}
                   variant="primary"
                   text="Add"
                   onClick={() => console.log("Content added")}
@@ -48,6 +42,23 @@ function CreateContentModal({
         </div>
       )}
     </div>
+  );
+}
+
+function Input({
+  onChange,
+  placeholder,
+}: {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder: string;
+}) {
+  return (
+    <input
+      placeholder={placeholder}
+      type="text"
+      className="border text-sm border-gray-200 p-2 rounded-md w-full"
+      onChange={onChange}
+    />
   );
 }
 
