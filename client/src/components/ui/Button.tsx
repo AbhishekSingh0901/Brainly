@@ -18,7 +18,8 @@ function Button(props: ButtonProps) {
       className={`${variantClasses[variant]} px-4 py-2 flex items-center justify-center rounded-md gap-2 font-light tracking-wide`}
       {...rest}
     >
-      {startIcon} {text} {endIcon}
+      {startIcon} <p className="hidden md:inline-block ">{text}</p>
+      {endIcon}
     </button>
   );
 }
