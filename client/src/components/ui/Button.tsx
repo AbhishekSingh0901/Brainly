@@ -6,15 +6,17 @@ export interface ButtonProps
   endIcon?: React.ReactNode;
 }
 
+const variantClasses = {
+  primary: "bg-indigo-700 text-white",
+  secondary: "bg-indigo-100 text-indigo-700",
+};
+
 function Button(props: ButtonProps) {
   const { variant, text, startIcon, endIcon, ...rest } = props;
   return (
     <button
-      className={`${
-        variant === "primary"
-          ? " bg-indigo-700 text-white"
-          : "bg-indigo-100 text-indigo-700"
-      } px-4 py-2 flex items-center justify-center rounded-md gap-2`}
+      className={`${variantClasses[variant]} px-4 py-2 flex items-center justify-center rounded-md gap-2 font-light tracking-wide`}
+      {...rest}
     >
       {startIcon} {text} {endIcon}
     </button>
