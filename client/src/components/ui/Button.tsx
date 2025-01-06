@@ -12,10 +12,10 @@ const variantClasses = {
 };
 
 function Button(props: ButtonProps) {
-  const { variant, text, startIcon, endIcon, ...rest } = props;
+  const { variant, text, startIcon, endIcon, className, ...rest } = props;
   return (
     <button
-      className={`${variantClasses[variant]} px-4 py-2 flex items-center justify-center rounded-md gap-2 font-light tracking-wide`}
+      className={`${variantClasses[variant]} px-4 py-2 flex items-center justify-center rounded-md gap-2 font-light tracking-wide ${className}`}
       {...rest}
     >
       {startIcon} <p className="hidden md:inline-block ">{text}</p>
